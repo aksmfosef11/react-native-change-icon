@@ -1,4 +1,4 @@
-package com.nagiji.icon;
+package com.nagijichangeicon;
 
 import android.app.Activity;
 import android.content.pm.PackageManager;

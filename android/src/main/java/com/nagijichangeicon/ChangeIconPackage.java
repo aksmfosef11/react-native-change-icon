@@ -1,4 +1,4 @@
-package com.nagiji.icon;
+package com.nagijichangeicon;
 
 import java.util.Arrays;
 import java.util.Collections;

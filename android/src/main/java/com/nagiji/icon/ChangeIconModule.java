@@ -1,4 +1,4 @@
-package com.reactlibrary;
+package com.nagiji.icon;
 
 import android.app.Activity;
 import android.content.pm.PackageManager;

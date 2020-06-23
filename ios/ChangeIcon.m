@@ -32,4 +32,20 @@ RCT_REMAP_METHOD(changeIcon, iconName:(NSString *)iconName resolver:(RCTPromiseR
     }];
 }
 
+RCT_REMAP_METHOD(getCurrentIcon,
+                 resolver:(RCTPromiseResolveBlock)resolve
+                 rejecter:(RCTPromiseRejectBlock)reject)
+{
+    NSError *error = nil;
+  if ([[UIApplication sharedApplication] supportsAlternateIcons] == NO) {
+      reject(@"Error", @"Alternate icon not supported", error);
+      RCTLog(@"Alternate icons are not supported");
+      return;
+  }
+
+  NSString *currentIcon = [[UIApplication sharedApplication] alternateIconName];
+  resolve(currentIcon);
+}
+
+
 @end

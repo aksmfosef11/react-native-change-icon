@@ -52,4 +52,20 @@ public class ChangeIconModule extends ReactContextBaseJavaModule {
         );
         this.componentClass = activeClass;
     }
+
+    @ReactMethod
+    public void getCurrentIcon(Promise promise) {
+        try {
+            final Activity activity = getCurrentActivity();
+            if (activity == null) {
+                promise.reject("Icon string is empty.");
+                return;
+            }
+            if (this.componentClass == null)
+                this.componentClass = activity.getComponentName().getClassName();
+            promise.resolve(this.componentClass);
+        }catch(Exception e) {
+            promise.reject("Icon already in use.");
+        }
+    }
 }
